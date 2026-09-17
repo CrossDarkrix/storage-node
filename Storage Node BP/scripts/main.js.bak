@@ -1,0 +1,649 @@
+import {
+    world,
+    system,
+    ItemStack
+} from "@minecraft/server";
+
+import {
+    ModalFormData
+} from "@minecraft/server-ui";
+
+
+const STORAGE_NODE_ENTITY =
+    "entity:storage_node";
+
+const VACUUM_NODE_ENTITY =
+    "entity:vacuum_node";
+
+const CONTAINERS = [
+    "minecraft:chest",
+    "minecraft:barrel",
+    "minecraft:dispenser",
+    "minecraft:dropper",
+    "minecraft:hopper",
+    "minecraft:trapped_chest",
+    "minecraft:furnace",
+    "minecraft:smoker"
+];
+
+function isContainer(block) {
+
+    if (!block)
+        return false;
+
+    return (
+        CONTAINERS.includes(
+            block.typeId
+        ) ||
+        block.typeId.endsWith(
+            "_shulker_box"
+        )
+    );
+}
+
+
+/* =========================================================
+   OPEN SETTINGS
+========================================================= */
+
+world.beforeEvents.playerInteractWithBlock.subscribe(ev => {
+
+    const player = ev.player;
+
+    if (!player.isSneaking)
+        return;
+
+    if (ev.itemStack)
+        return;
+
+    if (
+        ev.block.typeId !==
+        "vfh:storage_node"
+    ) {
+        return;
+    }
+
+    const node =
+        ev.block.dimension
+        .getEntitiesAtBlockLocation(
+            ev.block.location
+        )
+        .find(e =>
+            e.typeId ===
+            STORAGE_NODE_ENTITY
+        );
+
+    if (!node)
+        return;
+
+    ev.cancel = true;
+
+    system.run(() => {
+
+        const speed = 64;
+
+        new ModalFormData()
+            .title(
+                "Storage Node"
+            )
+            .slider(
+                "Transfer Amount",
+                1,
+                256,
+                {
+                    defaultValue: speed
+                }
+            )
+            .show(player)
+            .then(result => {
+
+                if (
+                    result.canceled
+                ) {
+                    return;
+                }
+
+                const value =
+                    Number(
+                        result.formValues[0]
+                    );
+
+                node.setDynamicProperty(
+                    "fast_hopper_speed",
+                    value
+                );
+
+                player.sendMessage(
+                    `§aSpeed = ${value}`
+                );
+            });
+
+    });
+});
+
+world.beforeEvents.playerInteractWithBlock.subscribe(ev => {
+
+    const player = ev.player;
+
+    if (!player.isSneaking)
+        return;
+
+    if (ev.itemStack)
+        return;
+
+    if (
+        ev.block.typeId !==
+        "vfh:vacuum_node"
+    ) {
+        return;
+    }
+
+    const vacuum =
+        ev.block.dimension
+        .getEntitiesAtBlockLocation(
+            ev.block.location
+        )
+        .find(e =>
+            e.typeId ===
+            VACUUM_NODE_ENTITY
+        );
+
+    if (!vacuum)
+        return;
+
+    ev.cancel = true;
+
+    system.run(() => {
+
+        const range = 5;
+
+        new ModalFormData()
+            .title(
+                "Vacuum Storage Node"
+            )
+            .slider(
+                "Pickup Range",
+                1,
+                10,
+                {
+                    defaultValue: range
+                }
+            )
+            .show(player)
+            .then(result => {
+
+                if (
+                    result.canceled
+                ) {
+                    return;
+                }
+
+                const value =
+                    Number(
+                        result.formValues[0]
+                    );
+
+                vacuum.setDynamicProperty(
+                    "vacuum_hopper_range",
+                    value
+                );
+
+                player.sendMessage(
+                    `§bRange = ${value}`
+                );
+            });
+
+    });
+
+});
+
+/* =========================================================
+   STORAGE NODE ENGINE
+========================================================= */
+
+system.runInterval(() => {
+
+    const dimensions = [
+        "minecraft:overworld",
+        "minecraft:nether",
+        "minecraft:the_end"
+    ];
+
+    for (const dimId of dimensions) {
+
+        const dimension =
+            world.getDimension(dimId);
+
+        const hoppers =
+            dimension.getEntities({
+                type: STORAGE_NODE_ENTITY
+            });
+
+        for (const marker of hoppers) {
+            processFastHopper(marker);
+        }
+    }
+
+}, 20);
+
+/* =========================================================
+   VACUUM NODE ENGINE
+========================================================= */
+
+system.runInterval(() => {
+
+    const dimensions = [
+        "minecraft:overworld",
+        "minecraft:nether",
+        "minecraft:the_end"
+    ];
+
+    for (const dimId of dimensions) {
+
+        const dimension =
+            world.getDimension(dimId);
+
+        const vacuums =
+            dimension.getEntities({
+                type:
+                VACUUM_NODE_ENTITY
+            });
+
+        for (const marker of vacuums) {
+
+            processVacuumHopper(
+                marker
+            );
+        }
+    }
+
+}, 5);
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+function processFastHopper(
+    marker
+) {
+
+    const speed =
+        Number(
+            marker.getDynamicProperty(
+                "fast_hopper_speed"
+            )
+        ) || 64;
+
+    const dimension =
+        marker.dimension;
+
+    const pos = {
+
+        x: Math.floor(
+            marker.location.x
+        ),
+
+        y: Math.floor(
+            marker.location.y
+        ),
+
+        z: Math.floor(
+            marker.location.z
+        )
+    };
+
+    const hopper =
+        dimension.getBlock(pos);
+
+    if (
+        !hopper ||
+        hopper.typeId !==
+        "vfh:storage_node"
+    ) {
+
+        marker.remove();
+        return;
+    }
+
+    const velocity =
+        marker.getVelocity();
+
+    if (
+        Math.abs(
+            velocity.x
+        ) > 0.01 ||
+
+        Math.abs(
+            velocity.y
+        ) > 0.01 ||
+
+        Math.abs(
+            velocity.z
+        ) > 0.01
+    ) {
+
+        marker.teleport({
+            x: pos.x + 0.5,
+            y: pos.y + 0.5,
+            z: pos.z + 0.5
+        });
+    }
+
+    const topBlock =
+        dimension.getBlock({
+            x: pos.x,
+            y: pos.y + 1,
+            z: pos.z
+        });
+
+    moveItems(
+        topBlock,
+        hopper,
+        speed
+    );
+
+    const target =
+        getTargetBlock(
+            hopper
+        );
+
+    moveItems(
+        hopper,
+        target,
+        speed
+    );
+}
+
+function processVacuumHopper(
+    marker
+) {
+
+    const range =
+        Number(
+            marker.getDynamicProperty(
+                "vacuum_hopper_range"
+            )
+        ) || 5;
+
+    const dimension =
+        marker.dimension;
+
+    const pos = {
+
+        x:
+            Math.floor(
+                marker.location.x
+            ),
+
+        y:
+            Math.floor(
+                marker.location.y
+            ),
+
+        z:
+            Math.floor(
+                marker.location.z
+            )
+    };
+
+    const hopper =
+        dimension.getBlock(pos);
+
+    if (
+        !hopper ||
+        hopper.typeId !==
+        "vfh:vacuum_node"
+    ) {
+
+        marker.remove();
+        return;
+    }
+
+    suckItems(
+        hopper,
+        range
+    );
+
+    const target =
+        getTargetBlock(
+            hopper
+        );
+
+    moveItems(
+        hopper,
+        target,
+        64
+    );
+}
+
+function suckItems(
+    hopper,
+    range
+) {
+
+    const inventory =
+        hopper.getComponent(
+            "inventory"
+        )?.container;
+
+    if (!inventory)
+        return;
+
+    const items =
+        hopper.dimension
+        .getEntities({
+
+            type:
+                "minecraft:item",
+
+            location: {
+
+                x:
+                    hopper.location.x
+                    + 0.5,
+
+                y:
+                    hopper.location.y
+                    + 0.5,
+
+                z:
+                    hopper.location.z
+                    + 0.5
+            },
+
+            maxDistance:
+                range
+        })
+		.slice(0, 16);
+
+    for (const itemEntity of items) {
+
+        try {
+
+            const itemComp =
+                itemEntity.getComponent(
+                    "minecraft:item"
+                );
+
+            if (!itemComp)
+                continue;
+
+            const leftover =
+                inventory.addItem(
+                    itemComp.itemStack
+                );
+
+            if (!leftover) {
+
+                itemEntity.remove();
+            }
+
+        } catch {}
+    }
+}
+
+/* =========================================================
+   TARGET
+========================================================= */
+
+function getTargetBlock(
+    hopper
+) {
+
+    const facing =
+        hopper.permutation
+        .getState(
+            "facing_direction"
+        );
+
+    const p = {
+        x: hopper.location.x,
+        y: hopper.location.y,
+        z: hopper.location.z
+    };
+
+    switch (facing) {
+
+        case 0:
+            p.y--;
+            break;
+
+        case 2:
+            p.z--;
+            break;
+
+        case 3:
+            p.z++;
+            break;
+
+        case 4:
+            p.x--;
+            break;
+
+        case 5:
+            p.x++;
+            break;
+    }
+
+    return hopper.dimension
+        .getBlock(p);
+}
+
+/* =========================================================
+   MOVE ITEMS
+========================================================= */
+
+function moveItems(
+    sourceBlock,
+    targetBlock,
+    maxItems
+) {
+
+    if (
+        !sourceBlock ||
+        !targetBlock
+    ) {
+        return;
+    }
+
+    if (!isContainer(sourceBlock))
+        return;
+
+    if (!isContainer(targetBlock))
+        return;
+
+    const source =
+        sourceBlock.getComponent(
+            "inventory"
+        )?.container;
+
+    const target =
+        targetBlock.getComponent(
+            "inventory"
+        )?.container;
+
+    if (
+        !source ||
+        !target
+    ) {
+        return;
+    }
+
+    let transferred = 0;
+
+    for (
+        let slot = 0;
+        slot < source.size;
+        slot++
+    ) {
+
+        if (
+            transferred >=
+            maxItems
+        ) {
+            break;
+        }
+
+        const item =
+            source.getItem(slot);
+
+        if (!item)
+            continue;
+
+        const amount =
+            Math.min(
+                item.amount,
+                maxItems -
+                transferred
+            );
+
+        const clone =
+            item.clone();
+
+        clone.amount =
+            amount;
+
+        const leftover =
+            target.addItem(
+                clone
+            );
+
+        let success =
+            amount;
+
+        if (leftover) {
+            success -=
+                leftover.amount;
+        }
+
+        if (
+            success <= 0
+        ) {
+            continue;
+        }
+
+        if (
+            item.amount ===
+            success
+        ) {
+
+            source.setItem(
+                slot,
+                undefined
+            );
+
+        } else {
+
+            item.amount -=
+                success;
+
+            source.setItem(
+                slot,
+                item
+            );
+        }
+
+        transferred +=
+            success;
+    }
+}

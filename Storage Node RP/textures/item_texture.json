@@ -1,0 +1,16 @@
+{
+  "resource_pack_name": "Storage Node",
+  "texture_name": "atlas.items",
+
+  "texture_data": {
+    "storage_node": {
+      "textures":
+      "textures/items/storage_node"
+    },
+
+    "vacuum_node": {
+      "textures":
+      "textures/items/vacuum_node"
+    }
+  }
+}

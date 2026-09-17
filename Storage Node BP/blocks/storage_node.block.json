@@ -1,0 +1,40 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:block": {
+    "description": {
+      "identifier": "vfh:storage_node",
+      "menu_category": {
+        "category": "items"
+      },
+	  "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": [
+            "minecraft:facing_direction"
+          ]
+        }
+      }
+    },
+    "components": {
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1.5
+      },
+      "minecraft:map_color": "#c67d43",
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "storage_node_side",
+          "render_method": "opaque"
+        },
+        "up": {
+          "texture": "storage_node_top",
+          "render_method": "opaque"
+        },
+        "down": {
+          "texture": "storage_node_top",
+          "render_method": "opaque"
+        }
+      }
+
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "resource_pack_name": "Vacuum Fast Hopper RP",
+  "texture_name": "atlas.terrain",
+
+  "texture_data": {
+
+    "storage_node_side": {
+      "textures": "textures/blocks/Node_side"
+    },
+
+    "storage_node_top": {
+      "textures": "textures/blocks/Node_top"
+    },
+
+    "vacuum_node": {
+      "textures": "textures/blocks/Vacuum_node"
+    }
+
+  }
+}

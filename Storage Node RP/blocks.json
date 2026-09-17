@@ -1,0 +1,27 @@
+{
+  "format_version": [1, 21, 40],
+  "vfh:storage_node": {
+    "sound": "metal",
+    "textures": {
+      "up": "storage_node_top",
+      "down": "storage_node_top",
+
+      "north": "storage_node_side",
+      "south": "storage_node_side",
+      "east": "storage_node_side",
+      "west": "storage_node_side"
+    }
+  },
+
+  "vfh:vacuum_node": {
+    "sound": "metal",
+    "textures": {
+      "up": "vacuum_node",
+      "down": "vacuum_node",
+      "north": "vacuum_node",
+      "south": "vacuum_node",
+      "east": "vacuum_node",
+      "west": "vacuum_node"
+    }
+  }
+}
