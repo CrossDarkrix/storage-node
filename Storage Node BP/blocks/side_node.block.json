@@ -1,0 +1,122 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "vfh:side_node",
+            "menu_category": {
+                "category": "items"
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [
+                        "minecraft:cardinal_direction"
+                    ]
+                }
+            },
+            "states": {
+                "vfh:side_input_visual": [
+                    "north",
+                    "south",
+                    "east",
+                    "west",
+                    "up",
+                    "down"
+                ]
+            }
+        },
+        "components": {
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.5
+            },
+            "minecraft:map_color": "#c67d43",
+            "minecraft:geometry": {
+                "identifier": "geometry.vfh.side_pipe"
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "storage_pipe",
+                    "render_method": "alpha_test"
+                }
+            }
+        },
+        "permutations": [
+            {
+                "_comment": "SIDE_S2B_SWITCH north",
+                "condition": "q.block_state('vfh:side_input_visual') == 'north'",
+                "components": {
+                    "minecraft:geometry": "geometry.vfh.side_pipe",
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            -90,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "_comment": "SIDE_S2B_SWITCH south",
+                "condition": "q.block_state('vfh:side_input_visual') == 'south'",
+                "components": {
+                    "minecraft:geometry": "geometry.vfh.side_pipe",
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            90,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "_comment": "SIDE_S2B_SWITCH east",
+                "condition": "q.block_state('vfh:side_input_visual') == 'east'",
+                "components": {
+                    "minecraft:geometry": "geometry.vfh.side_pipe",
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                           180,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "_comment": "SIDE_S2B_SWITCH west",
+                "condition": "q.block_state('vfh:side_input_visual') == 'west'",
+                "components": {
+                    "minecraft:geometry": "geometry.vfh.side_pipe",
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "_comment": "SIDE_S2B_SWITCH up",
+                "condition": "q.block_state('vfh:side_input_visual') == 'up'",
+                "components": {
+                    "minecraft:geometry": "geometry.vfh.storage_pipe"
+                }
+            },
+            {
+                "_comment": "SIDE_S2B_SWITCH down",
+                "condition": "q.block_state('vfh:side_input_visual') == 'down'",
+                "components": {
+                    "minecraft:geometry": "geometry.vfh.storage_pipe",
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0,
+                            0,
+                            180
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,26 +1,39 @@
 {
   "format_version": 2,
   "header": {
-    "name": "Storage Node v1.3.2 RP",
+    "name": "Storage Node 1.6.0 RP",
     "description": "By CrossDarkRix",
-    "uuid": "78010165-6c57-4a16-badd-e856f00dd0f1",
-    "version": [1, 3, 2],
-    "min_engine_version": [1, 20, 80]
+    "uuid": "1dde3616-0473-48f3-9f9e-b8046795b418",
+    "version": [
+      1,
+      6,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      20,
+      80
+    ]
   },
   "modules": [
     {
       "type": "resources",
-      "uuid": "2f17d26b-cab1-47f9-b133-004ffd1cbf92",
-      "version": [1, 3, 2]
+      "uuid": "68b31495-b8af-43f5-b4c1-895f7e46446f",
+      "version": [
+        1,
+        6,
+        0
+      ]
     }
   ],
   "dependencies": [
     {
-      "uuid": "03440157-a67b-44cd-97e9-8f7da319ff5f",
+      "uuid": "6fb0d2dc-4e17-41ab-80f7-9fa51576de84",
       "version": [
         1,
-        3,
-        2
+        6,
+        0
       ]
-    }]
+    }
+  ]
 }

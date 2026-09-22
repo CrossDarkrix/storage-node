@@ -2,7 +2,7 @@
   "format_version": "1.20.80",
   "minecraft:block": {
     "description": {
-      "identifier": "vfh:vacuum_node",
+      "identifier": "vfh:center_node",
       "menu_category": {
         "category": "items"
       },
@@ -21,10 +21,10 @@
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 1.5
       },
-      "minecraft:map_color": "#40d0d0",
+      "minecraft:map_color": "#c67d43",
       "minecraft:material_instances": {
         "*": {
-          "texture": "vacuum_pipe",
+          "texture": "storage_pipe",
           "render_method": "alpha_test"
         }
       }

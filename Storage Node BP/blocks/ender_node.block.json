@@ -1,0 +1,26 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "vfh:ender_node",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1.5
+      },
+      "minecraft:map_color": "#8b2bb3",
+      "minecraft:geometry": {
+        "identifier": "geometry.vfh.ender_node"
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "ender_node",
+          "render_method": "alpha_test"
+        }
+      }
+    }
+  }
+}

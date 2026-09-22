@@ -1,17 +1,23 @@
 {
-  "format_version": "1.20.80",
+  "format_version": "1.26.0",
   "minecraft:block": {
     "description": {
       "identifier": "vfh:storage_node",
       "menu_category": {
         "category": "items"
       },
-	  "traits": {
+      "traits": {
         "minecraft:placement_direction": {
           "enabled_states": [
             "minecraft:facing_direction"
           ]
         }
+      },
+      "states": {
+        "vfh:storage_powered": [
+          false,
+          true
+        ]
       }
     },
     "components": {
@@ -19,22 +25,34 @@
         "seconds_to_destroy": 1.5
       },
       "minecraft:map_color": "#c67d43",
-      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:geometry": {
+        "identifier": "geometry.vfh.storage_pipe"
+      },
       "minecraft:material_instances": {
         "*": {
-          "texture": "storage_node_side",
-          "render_method": "opaque"
-        },
-        "up": {
-          "texture": "storage_node_top",
-          "render_method": "opaque"
-        },
-        "down": {
-          "texture": "storage_node_top",
-          "render_method": "opaque"
+          "texture": "storage_pipe",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:redstone_consumer": {
+        "min_power": 0,
+        "propagates_power": false
+      },
+      "vfh:storage_redstone_sync": {}
+    },
+    "permutations": [
+      {
+        "_comment": "ST-2C POWERED TEXTURE",
+        "condition": "q.block_state('vfh:storage_powered') == true",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "storage_pipe_powered",
+              "render_method": "alpha_test"
+            }
+          }
         }
       }
-
-    }
+    ]
   }
 }

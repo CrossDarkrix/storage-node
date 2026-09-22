@@ -1,20 +1,20 @@
 {
-  "resource_pack_name": "Vacuum Fast Hopper RP",
+  "resource_pack_name": "Storage Node RP",
   "texture_name": "atlas.terrain",
-
+  "padding": 8,
+  "num_mip_levels": 4,
   "texture_data": {
-
-    "storage_node_side": {
-      "textures": "textures/blocks/Node_side"
+    "storage_pipe": {
+      "textures": "textures/blocks/storage_pipe"
     },
-
-    "storage_node_top": {
-      "textures": "textures/blocks/Node_top"
+    "storage_pipe_powered": {
+      "textures": "textures/blocks/redstone_line"
     },
-
-    "vacuum_node": {
-      "textures": "textures/blocks/Vacuum_node"
+    "vacuum_pipe": {
+      "textures": "textures/blocks/vacuum"
+    },
+    "ender_node": {
+      "textures": "textures/blocks/ender_node"
     }
-
   }
 }

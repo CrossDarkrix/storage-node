@@ -2,21 +2,18 @@
   "format_version": "1.12.0",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "vfh:_storage_node_recipes"
+      "identifier": "vfh:storage_node_recipe"
     },
     "tags": [ "crafting_table" ],
     "pattern": [
-      " C ",
-      " I ",
-	  " H "
+      "CS "
     ],
     "key": {
       "C": { "item": "minecraft:copper_ingot" },
-      "I": { "item": "minecraft:iron_block" },
-      "H": { "item": "minecraft:hopper" }
+      "S": { "item": "vfh:storage_node" }
     },
     "result": {
-      "item": "vfh:storage_node"
+      "item": "vfh:side_node"
     }
   }
 }

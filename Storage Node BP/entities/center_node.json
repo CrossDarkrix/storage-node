@@ -1,0 +1,46 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "entity:center_node",
+      "is_spawnable": false,
+      "is_summonable": true
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "storage_node",
+          "inanimate"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.1,
+        "height": 0.1
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": false
+        }
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:nameable": {},
+      "minecraft:persistent": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:inventory": {
+        "container_type": "container",
+        "inventory_size": 27,
+        "can_be_siphoned_from": true
+      },
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      }
+    }
+  }
+}

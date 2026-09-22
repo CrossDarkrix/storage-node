@@ -1,18 +1,30 @@
 {
   "format_version": 2,
   "header": {
-    "name": "Storage Node v1.3.2 BP",
+    "name": "Storage Node 1.6.0 BP",
     "description": "By CrossDarkRix",
-    "uuid": "03440157-a67b-44cd-97e9-8f7da319ff5f",
-    "version": [1, 3, 2],
-    "min_engine_version": [1, 20, 80]
+    "uuid": "6fb0d2dc-4e17-41ab-80f7-9fa51576de84",
+    "version": [
+      1,
+      6,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      20,
+      80
+    ]
   },
   "modules": [
     {
       "type": "script",
       "language": "javascript",
-      "uuid": "a02f5db9-c8f8-45c0-93d9-228a9e1db9c2",
-      "version": [1, 3, 2],
+      "uuid": "d83d6bfb-1bc0-4f2c-8ae7-79d2a9ebc802",
+      "version": [
+        1,
+        6,
+        0
+      ],
       "entry": "scripts/main.js"
     }
   ],
@@ -25,12 +37,12 @@
       "module_name": "@minecraft/server-ui",
       "version": "2.0.0"
     },
-	{
-      "uuid": "78010165-6c57-4a16-badd-e856f00dd0f1",
+    {
+      "uuid": "1dde3616-0473-48f3-9f9e-b8046795b418",
       "version": [
         1,
-        3,
-        2
+        6,
+        0
       ]
     }
   ],

@@ -2,21 +2,21 @@
   "format_version": "1.12.0",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "vfh:_storage_node_recipes"
+      "identifier": "vfh:ender_node_recipe"
     },
     "tags": [ "crafting_table" ],
     "pattern": [
-      " C ",
-      " I ",
+      " E ",
+      " O ",
 	  " H "
     ],
     "key": {
-      "C": { "item": "minecraft:copper_ingot" },
-      "I": { "item": "minecraft:iron_block" },
+      "E": { "item": "minecraft:ender_eye" },
+      "O": { "item": "minecraft:obsidian" },
       "H": { "item": "minecraft:hopper" }
     },
     "result": {
-      "item": "vfh:storage_node"
+      "item": "vfh:ender_node"
     }
   }
 }
