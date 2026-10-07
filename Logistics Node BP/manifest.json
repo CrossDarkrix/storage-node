@@ -1,0 +1,52 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Logistics Node 2.3.0-110 BP",
+    "description": "By CrossDarkRix",
+    "uuid": "3322453b-a12b-45ca-8698-463e7fef69d3",
+    "version": [
+      2,
+      3,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      20,
+      80
+    ]
+  },
+  "modules": [
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "23d638b4-5ee6-43bd-903d-a34d39c6773c",
+      "version": [
+        2,
+        3,
+        0
+      ],
+      "entry": "scripts/main.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.7.0"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "2.0.0"
+    },
+    {
+      "uuid": "329e307a-5ebb-4656-984a-c506b13f7e52",
+      "version": [
+        2,
+        3,
+        0
+      ]
+    }
+  ],
+  "metadata": {
+    "product_type": "addon"
+  }
+}

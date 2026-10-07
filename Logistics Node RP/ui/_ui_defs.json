@@ -1,0 +1,13 @@
+{
+  "ui_defs": [
+    "ui/chest_screen.json",
+    "ui/vfh/common.json",
+    "ui/vfh/common_buttons.json",
+    "ui/vfh/java_scroll.json",
+    "ui/vfh/system_terminal.json",
+    "ui/vfh/crafting_terminal.json",
+    "ui/vfh/large_container.json",
+    "ui/vfh/craft_pattern.json",
+    "ui/vfh/output_filter.json"
+  ]
+}

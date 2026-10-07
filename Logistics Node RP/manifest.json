@@ -1,0 +1,39 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Logistics Node 2.3.0-110 RP",
+    "description": "By CrossDarkRix",
+    "uuid": "329e307a-5ebb-4656-984a-c506b13f7e52",
+    "version": [
+      2,
+      3,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      20,
+      80
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "d773e2aa-b679-4f2b-9b15-e4aee331e457",
+      "version": [
+        2,
+        3,
+        0
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "3322453b-a12b-45ca-8698-463e7fef69d3",
+      "version": [
+        2,
+        3,
+        0
+      ]
+    }
+  ]
+}

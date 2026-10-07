@@ -1,0 +1,62 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "vfh:breaker_start",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.4
+      },
+      "minecraft:map_color": "#ff4854",
+      "minecraft:geometry": {
+        "identifier": "geometry.vfh.ender_node",
+        "bone_visibility": {
+          "joint_north": false,
+          "joint_south": false,
+          "joint_east": false,
+          "joint_west": false,
+          "joint_up": false,
+          "joint_down": false
+        }
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "marker_start",
+          "render_method": "alpha_test"
+        },
+        "joint": {
+          "texture": "marker_start",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:collision_box": {
+        "origin": [
+          -4,
+          4,
+          -4
+        ],
+        "size": [
+          8,
+          8,
+          8
+        ]
+      },
+      "minecraft:selection_box": {
+        "origin": [
+          -4,
+          4,
+          -4
+        ],
+        "size": [
+          8,
+          8,
+          8
+        ]
+      }
+    }
+  }
+}

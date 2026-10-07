@@ -1,0 +1,33 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "vfh:breaker_node_recipe"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "IPI",
+      "RHR",
+      "III"
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:iron_ingot"
+      },
+      "P": {
+        "item": "minecraft:diamond_pickaxe"
+      },
+      "R": {
+        "item": "minecraft:redstone"
+      },
+      "H": {
+        "item": "minecraft:hopper"
+      }
+    },
+    "result": {
+      "item": "vfh:breaker_node"
+    }
+  }
+}

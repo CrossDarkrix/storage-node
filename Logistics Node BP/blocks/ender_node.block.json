@@ -1,0 +1,83 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "vfh:ender_node",
+      "menu_category": {
+        "category": "items"
+      },
+      "states": {
+        "vfh:joint_north": {
+          "values": {
+            "min": 0,
+            "max": 1
+          },
+          "default": 0
+        },
+        "vfh:joint_south": {
+          "values": {
+            "min": 0,
+            "max": 1
+          },
+          "default": 0
+        },
+        "vfh:joint_east": {
+          "values": {
+            "min": 0,
+            "max": 1
+          },
+          "default": 0
+        },
+        "vfh:joint_west": {
+          "values": {
+            "min": 0,
+            "max": 1
+          },
+          "default": 0
+        },
+        "vfh:joint_up": {
+          "values": {
+            "min": 0,
+            "max": 1
+          },
+          "default": 0
+        },
+        "vfh:joint_down": {
+          "values": {
+            "min": 0,
+            "max": 1
+          },
+          "default": 0
+        }
+      }
+    },
+    "components": {
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1.5
+      },
+      "minecraft:map_color": "#8b2bb3",
+      "minecraft:geometry": {
+        "identifier": "geometry.vfh.ender_node",
+        "bone_visibility": {
+          "joint_north": "q.block_state('vfh:joint_south') == 1",
+          "joint_south": "q.block_state('vfh:joint_north') == 1",
+          "joint_east": "q.block_state('vfh:joint_east') == 1",
+          "joint_west": "q.block_state('vfh:joint_west') == 1",
+          "joint_up": "q.block_state('vfh:joint_up') == 1",
+          "joint_down": "q.block_state('vfh:joint_down') == 1"
+        }
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "ender_node",
+          "render_method": "alpha_test"
+        },
+        "joint": {
+          "texture": "joint",
+          "render_method": "alpha_test"
+        }
+      }
+    },
+    "permutations": []
+  }
+}

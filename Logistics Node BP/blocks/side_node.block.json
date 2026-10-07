@@ -1,0 +1,108 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:block": {
+    "description": {
+      "identifier": "vfh:side_node",
+      "menu_category": {
+        "category": "items"
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": [
+            "minecraft:cardinal_direction"
+          ]
+        }
+      },
+      "states": {
+        "vfh:side_input_visual": [
+          "north",
+          "south",
+          "east",
+          "west",
+          "up",
+          "down"
+        ],
+        "vfh:joint_north": {
+          "values": {
+            "min": 0,
+            "max": 1
+          },
+          "default": 0
+        },
+        "vfh:joint_south": {
+          "values": {
+            "min": 0,
+            "max": 1
+          },
+          "default": 0
+        },
+        "vfh:joint_east": {
+          "values": {
+            "min": 0,
+            "max": 1
+          },
+          "default": 0
+        },
+        "vfh:joint_west": {
+          "values": {
+            "min": 0,
+            "max": 1
+          },
+          "default": 0
+        },
+        "vfh:joint_up": {
+          "values": {
+            "min": 0,
+            "max": 1
+          },
+          "default": 0
+        },
+        "vfh:joint_down": {
+          "values": {
+            "min": 0,
+            "max": 1
+          },
+          "default": 0
+        }
+      }
+    },
+    "components": {
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1.5
+      },
+      "minecraft:map_color": "#c67d43",
+      "minecraft:geometry": {
+        "identifier": "geometry.vfh.side_node",
+        "bone_visibility": {
+          "joint_north": "q.block_state('vfh:joint_south') == 1 && q.block_state('vfh:side_input_visual') != 'south'",
+          "joint_south": "q.block_state('vfh:joint_north') == 1 && q.block_state('vfh:side_input_visual') != 'north'",
+          "joint_east": "q.block_state('vfh:joint_east') == 1 && q.block_state('vfh:side_input_visual') != 'east'",
+          "joint_west": "q.block_state('vfh:joint_west') == 1 && q.block_state('vfh:side_input_visual') != 'west'",
+          "joint_up": "q.block_state('vfh:joint_up') == 1 && q.block_state('vfh:side_input_visual') != 'up'",
+          "joint_down": "q.block_state('vfh:joint_down') == 1 && q.block_state('vfh:side_input_visual') != 'down'",
+          "joint_input_north": "q.block_state('vfh:joint_south') == 1 && q.block_state('vfh:side_input_visual') == 'south'",
+          "joint_input_south": "q.block_state('vfh:joint_north') == 1 && q.block_state('vfh:side_input_visual') == 'north'",
+          "joint_input_east": "q.block_state('vfh:joint_east') == 1 && q.block_state('vfh:side_input_visual') == 'east'",
+          "joint_input_west": "q.block_state('vfh:joint_west') == 1 && q.block_state('vfh:side_input_visual') == 'west'",
+          "joint_input_up": "q.block_state('vfh:joint_up') == 1 && q.block_state('vfh:side_input_visual') == 'up'",
+          "joint_input_down": "q.block_state('vfh:joint_down') == 1 && q.block_state('vfh:side_input_visual') == 'down'"
+        }
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "side_node",
+          "render_method": "alpha_test"
+        },
+        "joint": {
+          "texture": "joint",
+          "render_method": "alpha_test"
+        },
+        "joint_input": {
+          "texture": "joint_input",
+          "render_method": "alpha_test"
+        }
+      }
+    },
+    "permutations": []
+  }
+}

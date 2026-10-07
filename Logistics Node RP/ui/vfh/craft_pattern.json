@@ -1,0 +1,131 @@
+{
+  "namespace": "vfh-craft-pattern",
+  "pattern_item@common.container_item": {
+    "$item_collection_name": "container_items"
+  },
+  "pattern_grid": {
+    "type": "grid",
+    "grid_item_template": "vfh-craft-pattern.pattern_item",
+    "grid_dimensions": [
+      3,
+      3
+    ],
+    "collection_name": "container_items",
+    "size": [
+      "54px",
+      "54px"
+    ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left"
+  },
+  "top_panel": {
+    "type": "panel",
+    "size": [
+      "100%",
+      "76px"
+    ],
+    "controls": [
+      {
+        "pattern_grid@vfh-craft-pattern.pattern_grid": {
+          "offset": [
+            28,
+            -4
+          ]
+        }
+      },
+      {
+        "output_slot@vfh:common.container_item_slot": {
+          "$index": 9,
+          "$slot_size": [
+            26,
+            26
+          ],
+          "$slot_image_size": [
+            26,
+            26
+          ],
+          "$button_ref": "vfh:common.output_template",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [
+            106,
+            12
+          ]
+        }
+      }
+    ]
+  },
+  "chest_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "container_gamepad_helpers@common.container_gamepad_helpers": {}
+      },
+      {
+        "selected_item_details_factory@common.selected_item_details_factory": {
+          "control_name": "@chest.selected_item_details"
+        }
+      },
+      {
+        "item_lock_notification_factory@common.item_lock_notification_factory": {
+          "control_name": "@common.item_lock_notification"
+        }
+      },
+      {
+        "root_panel@common.root_panel": {
+          "size": [
+            "176px",
+            "166px"
+          ],
+          "layer": 1,
+          "controls": [
+            {
+              "common_panel@common.common_panel": {}
+            },
+            {
+              "inner": {
+                "type": "panel",
+                "layer": 5,
+                "controls": [
+                  {
+                    "top@vfh-craft-pattern.top_panel": {}
+                  },
+                  {
+                    "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {
+                      "offset": [
+                        0,
+                        22
+                      ]
+                    }
+                  },
+                  {
+                    "hotbar_grid@common.hotbar_grid_template": {
+                      "offset": [
+                        0,
+                        22
+                      ]
+                    }
+                  },
+                  {
+                    "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+                  },
+                  {
+                    "flying_item_renderer@common.flying_item_renderer": {
+                      "layer": 15
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "inventory_selected_icon_button@common.inventory_selected_icon_button": {}
+            },
+            {
+              "gamepad_cursor@common.gamepad_cursor_button": {}
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

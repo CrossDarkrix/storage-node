@@ -1,0 +1,74 @@
+{
+  "resource_pack_name": "Storage Node RP",
+  "texture_name": "atlas.terrain",
+  "padding": 8,
+  "num_mip_levels": 4,
+  "texture_data": {
+    "side_node": {
+      "textures": "textures/blocks/side_node"
+    },
+    "storage_pipe_powered": {
+      "textures": "textures/blocks/redstone_line"
+    },
+    "vacuum_node": {
+      "textures": "textures/blocks/vacuum_node"
+    },
+    "ender_node": {
+      "textures": "textures/blocks/ender_node"
+    },
+    "network_controller": {
+      "textures": "textures/blocks/network_controller"
+    },
+    "storage_node": {
+      "textures": "textures/blocks/storage_node"
+    },
+    "sort_node": {
+      "textures": "textures/blocks/sort_node"
+    },
+    "sort_node_black": {
+      "textures": "textures/blocks/sort_node_black"
+    },
+    "center_node": {
+      "textures": "textures/blocks/center_node"
+    },
+    "large_container": {
+      "textures": "textures/blocks/large_container"
+    },
+    "craft_node": {
+      "textures": "textures/blocks/craft_node"
+    },
+    "joint_test": {
+      "textures": "textures/blocks/joint"
+    },
+    "joint": {
+      "textures": "textures/blocks/joint"
+    },
+    "joint_input": {
+      "textures": "textures/blocks/joint_input"
+    },
+    "insert_node": {
+      "textures": "textures/blocks/insert_node"
+    },
+    "breaker_node": {
+      "textures": "textures/blocks/breaker_node"
+    },
+    "marker_start": {
+      "textures": "textures/blocks/marker_start"
+    },
+    "marker_end": {
+      "textures": "textures/blocks/marker_end"
+    },
+    "placer_node": {
+      "textures": "textures/blocks/placer_node"
+    },
+    "output_node": {
+      "textures": "textures/blocks/output_node"
+    },
+    "breaker_frame": {
+      "textures": "textures/blocks/breaker_frame"
+    },
+    "trash_node": {
+      "textures": "textures/blocks/trash_node"
+    }
+  }
+}

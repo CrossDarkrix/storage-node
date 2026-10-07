@@ -1,0 +1,22 @@
+{
+  "format_version": "1.26.20",
+  "minecraft:item": {
+    "description": {
+      "identifier": "vfh:debug_wand",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "vfh:debug_wand",
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:use_modifiers": {
+        "use_duration": 0.05
+      },
+      "minecraft:display_name": {
+        "value": "一時コンテナ削除"
+      }
+    }
+  }
+}

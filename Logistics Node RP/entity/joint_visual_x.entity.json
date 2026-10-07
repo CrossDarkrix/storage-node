@@ -1,0 +1,20 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "vfh:joint_visual_x",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/joint_visual"
+      },
+      "geometry": {
+        "default": "geometry.vfh.joint_visual_x"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

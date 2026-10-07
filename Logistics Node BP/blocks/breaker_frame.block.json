@@ -1,0 +1,37 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "vfh:breaker_frame"
+    },
+    "components": {
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1.5
+      },
+      "minecraft:map_color": "#ffd800",
+      "minecraft:geometry": {
+        "identifier": "geometry.vfh.ender_node",
+        "bone_visibility": {
+          "joint_north": false,
+          "joint_south": false,
+          "joint_east": false,
+          "joint_west": false,
+          "joint_up": false,
+          "joint_down": false
+        }
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "breaker_frame",
+          "render_method": "alpha_test"
+        },
+        "joint": {
+          "texture": "breaker_frame",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:loot": "loot_tables/blocks/breaker_frame.json"
+    },
+    "permutations": []
+  }
+}

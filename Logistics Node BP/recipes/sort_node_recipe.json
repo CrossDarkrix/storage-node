@@ -1,0 +1,19 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "vfh:sort_node_recipe"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "HC "
+    ],
+    "key": {
+      "H": { "item": "minecraft:hopper" },
+      "C": { "item": "vfh:center_node" }
+    },
+    "result": {
+      "item": "vfh:sort_node"
+    }
+  }
+}

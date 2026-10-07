@@ -1,0 +1,233 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "vfh:large_container",
+      "menu_category": {
+        "category": "items"
+      },
+      "states": {
+        "vfh:redstone_power": {
+          "values": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "default": 0
+        },
+        "vfh:joint_north": {
+          "values": {
+            "min": 0,
+            "max": 1
+          },
+          "default": 0
+        },
+        "vfh:joint_south": {
+          "values": {
+            "min": 0,
+            "max": 1
+          },
+          "default": 0
+        },
+        "vfh:joint_east": {
+          "values": {
+            "min": 0,
+            "max": 1
+          },
+          "default": 0
+        },
+        "vfh:joint_west": {
+          "values": {
+            "min": 0,
+            "max": 1
+          },
+          "default": 0
+        },
+        "vfh:joint_up": {
+          "values": {
+            "min": 0,
+            "max": 1
+          },
+          "default": 0
+        },
+        "vfh:joint_down": {
+          "values": {
+            "min": 0,
+            "max": 1
+          },
+          "default": 0
+        }
+      }
+    },
+    "components": {
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1.5
+      },
+      "minecraft:map_color": "#3355aa",
+      "minecraft:geometry": {
+        "identifier": "geometry.vfh.ender_node",
+        "bone_visibility": {
+          "joint_north": "q.block_state('vfh:joint_south') == 1",
+          "joint_south": "q.block_state('vfh:joint_north') == 1",
+          "joint_east": "q.block_state('vfh:joint_east') == 1",
+          "joint_west": "q.block_state('vfh:joint_west') == 1",
+          "joint_up": "q.block_state('vfh:joint_up') == 1",
+          "joint_down": "q.block_state('vfh:joint_down') == 1"
+        }
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "large_container",
+          "render_method": "alpha_test"
+        },
+        "joint": {
+          "texture": "joint",
+          "render_method": "alpha_test"
+        }
+      }
+    },
+    "permutations": [
+      {
+        "condition": "query.block_state('vfh:redstone_power') == 0",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 0
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('vfh:redstone_power') == 1",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 1
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('vfh:redstone_power') == 2",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 2
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('vfh:redstone_power') == 3",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 3
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('vfh:redstone_power') == 4",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 4
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('vfh:redstone_power') == 5",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 5
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('vfh:redstone_power') == 6",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 6
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('vfh:redstone_power') == 7",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 7
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('vfh:redstone_power') == 8",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 8
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('vfh:redstone_power') == 9",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 9
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('vfh:redstone_power') == 10",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 10
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('vfh:redstone_power') == 11",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 11
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('vfh:redstone_power') == 12",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 12
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('vfh:redstone_power') == 13",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 13
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('vfh:redstone_power') == 14",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 14
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('vfh:redstone_power') == 15",
+        "components": {
+          "minecraft:redstone_producer": {
+            "power": 15
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "format_version": [
+    1,
+    21,
+    40
+  ],
+  "vfh:storage_node": {
+    "sound": "metal"
+  },
+  "vfh:vacuum_node": {
+    "sound": "metal"
+  },
+  "vfh:center_node": {
+    "sound": "metal"
+  },
+  "vfh:sort_node": {
+    "sound": "metal"
+  },
+  "vfh:large_container": {
+    "sound": "metal"
+  },
+  "vfh:craft_node": {
+    "sound": "metal"
+  },
+  "vfh:joint_6way_test": {
+    "sound": "metal"
+  }
+}
