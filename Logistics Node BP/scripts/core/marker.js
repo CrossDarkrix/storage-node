@@ -227,6 +227,7 @@ const ownerMismatchCounts = new Map();
 export function repairOwnedMarker(marker, entityType, blockType) {
   if (!marker) return false;
   const owner = getMarkerOwner(marker);
+  
   if (!owner || owner.dimension !== marker.dimension.id) return false;
   let block;
   try {

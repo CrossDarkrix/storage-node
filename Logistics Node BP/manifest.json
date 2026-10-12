@@ -1,13 +1,13 @@
 {
   "format_version": 2,
   "header": {
-    "name": "Logistics Node 2.3.0-110 BP",
+    "name": "Logistics Node 3.0.1 BP",
     "description": "By CrossDarkRix",
-    "uuid": "3322453b-a12b-45ca-8698-463e7fef69d3",
+    "uuid": "687ffd3b-38d0-40ac-9c71-6a5ec32070ba",
     "version": [
-      2,
       3,
-      0
+      0,
+      1
     ],
     "min_engine_version": [
       1,
@@ -19,11 +19,11 @@
     {
       "type": "script",
       "language": "javascript",
-      "uuid": "23d638b4-5ee6-43bd-903d-a34d39c6773c",
+      "uuid": "f7b30781-a325-40fe-a9c5-0433730a0b5c",
       "version": [
-        2,
         3,
-        0
+        0,
+        1
       ],
       "entry": "scripts/main.js"
     }
@@ -38,11 +38,11 @@
       "version": "2.0.0"
     },
     {
-      "uuid": "329e307a-5ebb-4656-984a-c506b13f7e52",
+      "uuid": "05728dc6-4b2f-4342-b0bd-e70c0f6031ed",
       "version": [
-        2,
         3,
-        0
+        0,
+        1
       ]
     }
   ],
